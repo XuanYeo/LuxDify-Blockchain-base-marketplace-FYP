@@ -1,0 +1,67 @@
+/* Background Animation */
+.background {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+.background-section {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    flex-wrap: wrap;
+    overflow: hidden;
+    z-index: 0;
+    object-fit: cover;
+  }
+  .background-section::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#000 0%, rgba(255,213,116,1) 25%, rgba(238,169,57,1) 75%, #000 100%);
+    animation: animate 5s linear infinite;
+    object-fit: cover;
+  }
+  @keyframes animate {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(100%);
+    }
+  }
+  .background-section span {
+    position: relative;
+    display: block;
+    width: calc(45px - 2px);
+    height: calc(45px - 2px);
+    background: #181818;
+    z-index: 0;
+    transition: 1.5s;
+  }
+  .background-section span:hover {
+    background-image: linear-gradient(90deg, rgba(255,213,116,1) 0%, rgba(238,169,57,1) 100%);
+    transition: 0s;
+  }
+  .background-section span i {
+    color: #181818;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+  }
+  .background-section span img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 40px;
+    width: auto;
+    transform: translate(-50%, -50%);
+  }

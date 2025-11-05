@@ -1,36 +1,203 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# LuxDify - Decentralized Luxury Item Marketplace
 
-## Getting Started
+LuxDify is a blockchain-based web application enabling secure listing, purchasing, and NFT-based ownership of luxury products.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## A. Project Setup
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 1) Prerequisites
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Make sure the following are installed on your system:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Node.js (v18+)
+- MySQL Server
+- Hardhat (Ethereum local testnet)
+- Git
+- MetaMask Extension
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 2) Database Setup (MySQL)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+To run the LuxDify platform locally, a MySQL database must be properly set up with the correct schema and credentials.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Create the Database
+   
+   Open your MySQL terminal or use a GUI tool like phpMyAdmin or MySQL Workbench, and execute:
+   
+   ```sql
+   CREATE DATABASE mydatabase;
+   ```
 
-## Deploy on Vercel
+2. Configure Database Connection
+   
+   In your backend project, set the database credentials inside `backend/server.js` file (line 26). Example credentials:
+   
+   ```js
+   const db = mysql.createConnection({
+     host: "localhost",
+     user: "root",
+     password: "1234",
+     database: "mydatabase"
+   });
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. Create Required Tables
+   
+   Use the SQL table structure refer to the "4.3.2 Database Table Structure" section in the project documentation.
+   
+   Your system requires the following tables:
+   
+   - `user`
+   - `product`
+   - `orders`
+   - `favorites`
+   - `token_reload`
+   
+   Make sure to create these with the exact columns and constraints as specified.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+### 3) Backend Setup
+
+1. Navigate to backend folder:
+   
+   ```bash
+   cd backend
+   ```
+
+2. Install dependencies:
+   
+   ```bash
+   npm install
+   ```
+
+---
+
+### 4) Frontend Setup
+
+1. Navigate to frontend folder:
+   
+   ```bash
+   cd frontend
+   ```
+
+2. Install dependencies:
+   
+   ```bash
+   npm install
+   ```
+
+--- 
+
+### 5) Blockchain Development (Hardhat)
+
+1. Navigate to backend contract folder:
+   
+   ```bash
+   cd backend/Backend_Contract
+   ```
+
+2. Start local Ethereum node (keep running):
+   
+   ```bash
+   npx hardhat node
+   ```
+
+3. Open a new terminal and navigate to backend contract folder:
+   
+   ```bash
+   cd backend/Backend_Contract
+   ```
+
+4. Deploy smart contracts:
+   
+   ```bash
+   npx hardhat run scripts/deploy.js --network localhost
+   ```
+
+5. Output:
+   
+   <img src="file:///C:/Users/User/AppData/Roaming/marktext/images/2025-04-30-10-50-45-image.png" title="" alt="" width="639">
+
+6. In your backend project, set the deploy address inside `backend > nftHelper.js` file (line 9 & 10). Example Deployed address:
+   
+   ![](C:\Users\User\AppData\Roaming\marktext\images\2025-04-30-11-02-39-image.png)
+   
+   ```bash
+   LDToken = tokenContractAddress
+   ProductNFT = nftContractAddress
+   ```
+
+7. Also in backend, set the Pinata credentials inside `backend > nftHelper.js` file (line 11). Example:
+   
+   ![](C:\Users\User\AppData\Roaming\marktext\images\2025-04-30-11-05-05-image.png)
+   
+   ```bash
+   const pinata = new pinataSDK("API Key", "API Secret");
+   ```
+
+8. In your frontend project, set the Token Address same with the Deployed LDToken address inside `frontend > src > app > services > WalletService.ts` file (line 4). Example:
+   
+   ![](C:\Users\User\AppData\Roaming\marktext\images\2025-04-30-11-18-33-image.png)
+   
+   ```bash
+   LDToken = TOKEN_CONTRACT_ADDRESS
+   ```
+
+9. Also in your frontend, set the `window.ethereum.request` address same with the Deployed ProductNFT address inside `frontend > src > app > user > my_order > page.ts` file (line 90). Example:
+   
+   ![](C:\Users\User\AppData\Roaming\marktext\images\2025-04-30-11-25-28-image.png)
+   
+   ```bash
+   ProductNFT = address
+   ```
+
+10. Also in your frontend, set the `window.ethereum.request` address same with the Deployed ProductNFT address inside `frontend > src > app > user > portfolio > upload_product > page.ts` file (line 84). Example:
+    
+    ![](C:\Users\User\AppData\Roaming\marktext\images\2025-04-30-11-26-51-image.png)
+    
+    ```bash
+    ProductNFT = address
+    ```
+
+---
+
+## B. Run the Project
+
+1. Make sure you are running `npx hardhat node` in terminal
+
+2. After that, open a new terminal and navigate to backend folder:
+   
+   ```bash
+   cd backend
+   ```
+
+3. Start the backend server:
+   
+   ```bash
+   npm start
+   ```
+
+4. Then, Open a new terminal and navigate to frontend folder:
+   
+   ```bash
+   cd frontend
+   ```
+
+5. Start development server:
+   
+   ```bash
+   cd npm run dev
+   ```
+
+##### Now can Visit `http://localhost:3000` to see the running project.
+
+---
+
+## Contact
+
+Mail: [xuan.yeo.08@gmail.com](mailto:xuan.yeo.08@gmail.com)
+
+Project by Yeo Yue Xuan (TP069256) | APU FYP 2025

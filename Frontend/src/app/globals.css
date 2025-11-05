@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* main.css */
+.main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+/*
+.main-content::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120vmin;
+  height: 120vmin;
+  transform: translate(-50%, -50%) rotate(45deg);
+  background: linear-gradient(
+    to bottom,
+    #ffffff 0%,
+    #7b7b7b 25%,
+    #404040 56%,
+    #1e1d1d 100%
+  );
+  clip-path: polygon(
+    50% 0%, 
+    100% 50%, 
+    50% 100%, 
+    0% 50%
+  ); 
+  z-index: 1;
+}
+*/
+.category-label {
+  text-align: center;
+  font-family: monospace;
+  font-size: 100px;
+}
+
+.section-title {
+  font-size: 28px;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  text-align: center;
+}
+
+.step-card {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  font-size: 16px;
+}
+
+.benefits-list {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+.benefits-list li {
+  margin: 10px 0;
+  font-size: 16px;
+}
+

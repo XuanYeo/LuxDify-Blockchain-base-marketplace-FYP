@@ -1,0 +1,248 @@
+/* Main container */
+.seller-orders-container {
+  max-width: 1200px;
+  margin: 100px auto;
+  padding: 40px;
+  background: linear-gradient(145deg, #1a1a1a, #101010);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.1);
+  position: relative;
+  z-index: 100;
+}
+
+/* Section title */
+.section-title {
+  font-size: 28px;
+  margin-bottom: 24px;
+  font-weight: bold;
+}
+.highlight-title {
+  display: inline-block;
+  background: linear-gradient(90deg, #ffd574, #eea939);
+  color: black;
+  padding: 10px 25px;
+  border-radius: 50px;
+  box-shadow: 0 4px 20px rgba(255, 213, 116, 0.4);
+  font-size: 28px;
+  font-weight: bold;
+  text-shadow: none;
+}
+
+/* Card grid */
+.order-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns */
+  gap: 30px;
+  margin-top: 30px;
+}
+
+
+/* Info inside cards */
+.order-card {
+  background: #252525;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  border-radius: 15px;
+  padding: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 8px rgba(255, 215, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.order-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(255, 215, 0, 0.3);
+}
+
+/* Inner flex */
+.order-card-body {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.order-product-img {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  border-radius: 12px;
+  background: white;
+  margin-bottom: 15px;
+}
+
+.order-details {
+  padding-top: 25px;
+  flex: 1;
+}
+
+.order-details p {
+  margin: 6px 0;
+  color: #eee;
+  font-size: 15px;
+}
+.order-details p:nth-child(1) {
+  font-size: 18px;
+  color: #ffca28;
+  font-weight: bold;
+}
+/* Buyer Address Box */
+.address-box {
+  background: #333;
+  color: #ddd;
+  font-size: 14px;
+  padding: 12px 16px;
+  margin: 10px 0;
+  border-radius: 10px;
+  text-align: left;
+  word-break: break-word;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.address-box:hover {
+  background: #3a3a3a;
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
+  transition: 0.3s ease;
+}
+
+/* Action buttons section */
+.order-action-buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Pending orders glow */
+.order-card:hover::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  width: 100%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+  animation: pulseLight 2.5s infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Light pulsing animation */
+@keyframes pulseLight {
+  0% { transform: scale(0.95); opacity: 0.7; }
+  50% { transform: scale(1.05); opacity: 0.2; }
+  100% { transform: scale(0.95); opacity: 0.7; }
+}
+
+/* Buttons */
+.delivery-btn, .cancel-btn {
+  margin-top: 12px;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+  width: 100%;
+}
+
+/* Out for Delivery button */
+.delivery-btn {
+  background: linear-gradient(90deg, #00c851, #007e33);
+  color: #fff;
+}
+
+.delivery-btn:hover {
+  background: linear-gradient(90deg, #00b44b, #006622);
+}
+
+/* Reject Order button */
+.cancel-btn {
+  background: linear-gradient(90deg, #ff4e50, #f44336);
+  color: #fff;
+}
+
+.cancel-btn:hover {
+  background: linear-gradient(90deg, #e53935, #d32f2f);
+}
+
+/* OTP code */
+.order-details p:nth-child(5) strong {
+  font-weight: bold;
+  font-size: 1rem;
+  color: #00e1ff;
+  margin-top: 15px;
+  display: inline-block;
+}
+
+/* No orders text */
+.no-orders {
+  text-align: center;
+  color: #bbb;
+  font-size: 1.2rem;
+  margin-top: 40px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .seller-orders-container {
+    padding: 30px 20px;
+  }
+  .order-card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.status-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 20px;
+  background-color: gray;
+  color: white;
+  text-transform: capitalize;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  animation: popIn 0.4s ease;
+}
+
+/* Specific colors based on status */
+.status-pending {
+  background: linear-gradient(135deg, #ffc107, #ff9800);
+}
+
+.status-out-for-delivery {
+  background: linear-gradient(135deg, #2196f3, #03a9f4);
+}
+
+.status-delivered {
+  background: linear-gradient(135deg, #4caf50, #8bc34a);
+}
+
+/* Cute pop animation when loading */
+@keyframes popIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Grid */
+.order-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-top: 30px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .order-card-grid {
+    grid-template-columns: 1fr;
+  }
+}

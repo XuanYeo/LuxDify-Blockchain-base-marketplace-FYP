@@ -1,0 +1,136 @@
+/* Token Reload Container */
+.token-reload-container {
+  max-width: 500px;
+  margin: 120px auto;
+  padding: 35px 30px;
+  background: linear-gradient(145deg, #2c2c2cc5, #1c1c1cdc);
+  border-radius: 18px;
+  box-shadow: 0 8px 30px rgba(255, 215, 0, 0.15);
+  text-align: center;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  position: relative;
+  z-index: 100;
+}
+
+/* Title */
+.token-reload-container h2 {
+  margin-bottom: 25px;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ffd700;
+}
+
+/* Form */
+.token-reload-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Labels */
+.token-reload-container label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-align: left;
+}
+
+/* Dropdown */
+.token-reload-container select {
+  padding: 12px 15px;
+  font-size: 1rem;
+  background: #333;
+  color: #fff;
+  border: 1px solid #555;
+  border-radius: 10px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.token-reload-container select:focus {
+  border-color: #ffd700;
+}
+
+/* File Upload */
+.token-reload-container input[type="file"] {
+  padding: 10px;
+  background: #333;
+  color: #bbb;
+  border: 1px solid #555;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* Submit Button */
+.token-reload-container button {
+  position: relative;
+  overflow: hidden;
+  padding: 14px;
+  background: linear-gradient(to right, #ffd700, #ffa500);
+  color: #000;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.token-reload-container button:hover {
+  transform: translateY(-3px);
+  background: linear-gradient(to right, #ffcc00, #ff9900);
+  animation: pulse-glow 1.5s infinite;
+}
+
+/* GOLD PULSE Animation */
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 0 8px rgba(255, 215, 0, 0.4), 0 0 15px rgba(255, 215, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.7), 0 0 30px rgba(255, 215, 0, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 8px rgba(255, 215, 0, 0.4), 0 0 15px rgba(255, 215, 0, 0.3);
+  }
+}
+
+/* Disabled State */
+.token-reload-container button:disabled {
+  background: #555;
+  color: #ccc;
+  cursor: not-allowed;
+  animation: none;
+}
+
+/* Ripple effect */
+.token-reload-container button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 215, 0, 0.4);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  pointer-events: none;
+  transition: width 0.5s ease, height 0.5s ease, opacity 0.5s ease;
+}
+
+.token-reload-container button:active::after {
+  width: 300px;
+  height: 300px;
+  opacity: 0;
+  transition: 0s;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .token-reload-container {
+    padding: 25px 20px;
+    margin: 80px 15px;
+  }
+}

@@ -1,0 +1,213 @@
+/* Main container */
+.upload-container {
+  max-width: 700px;
+  margin: 100px auto;
+  background-color: #111;
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 10px 25px rgba(255, 213, 116, 0.2);
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
+  z-index: 100;
+}
+
+/* Title */
+.section-title {
+  font-size: 28px;
+  margin-bottom: 24px;
+  font-weight: bold;
+}
+.highlight-title {
+  display: inline-block;
+  background: linear-gradient(90deg, #ffd574, #eea939);
+  color: black!important;
+  padding: 10px 25px;
+  border-radius: 50px;
+  box-shadow: 0 4px 20px rgba(255, 213, 116, 0.4);
+  font-size: 28px;
+  font-weight: bold;
+  text-shadow: none;
+}
+
+/* Form labels & fields */
+.upload-container form label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.upload-container form input,
+.upload-container form select,
+.upload-container form textarea {
+  width: 100%;
+  padding: 12px 16px;
+  margin-bottom: 25px;
+  border: 2px solid rgba(255, 213, 116, 0.2);
+  border-radius: 12px;
+  background-color: #1f1f1f;
+  color: white;
+  font-size: 15px;
+  transition: border 0.3s ease;
+}
+
+.upload-container form input:focus,
+.upload-container form select:focus,
+.upload-container form textarea:focus {
+  outline: none;
+  border: 2px solid gold;
+  background-color: #262626;
+}
+
+/* Button */
+.upload-container form button {
+  width: 100%;
+  background-image: linear-gradient(90deg, rgba(255,213,116,1), rgba(238,169,57,1));
+  color: black;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(255, 213, 116, 0.3);
+}
+
+.upload-container form button:hover {
+  background-color: black;
+  color: white;
+  background-image: none;
+  border: 2px solid gold;
+}
+
+
+
+/* 🌟 Upload Product CSS */
+.upload-container {
+  max-width: 600px;
+  margin: 60px auto;
+  padding: 30px 40px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  color: #f0f0f0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.upload-container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #ffd574;
+}
+
+.upload-container form > div {
+  margin-bottom: 18px;
+  display: flex;
+  flex-direction: column;
+}
+
+.upload-container label {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.upload-container input[type="text"],
+.upload-container input[type="number"],
+.upload-container input[type="file"],
+.upload-container textarea,
+.upload-container select {
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 16px;
+}
+
+.upload-container input::file-selector-button {
+  background: rgba(255,213,116,1);
+  color: black;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.upload-container textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.upload-container select:focus,
+.upload-container input:focus,
+.upload-container textarea:focus {
+  outline: 2px solid rgba(255,213,116,0.6);
+}
+
+.upload-container button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  background-image: linear-gradient(90deg, rgba(255,213,116,1), rgba(238,169,57,1));
+  color: #000;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.upload-container button[type="submit"]:hover {
+  background-image: linear-gradient(90deg, rgba(238,169,57,1), rgba(255,213,116,1));
+  transform: scale(1.03);
+}
+
+
+.back-button-container {
+  max-width: 1100px;
+  margin: 20px auto -30px auto;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 100;
+}
+
+.back-btn {
+  position: relative;
+  background: linear-gradient(90deg, #ffd574, #eea939);
+  color: black;
+  font-weight: bold;
+  padding: 12px 24px;
+  border-radius: 50px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.back-btn::before {
+  content: "⬅️";
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%) translateX(0);
+  font-size: 20px;
+  transition: transform 0.3s ease;
+}
+
+.back-btn:hover {
+  background: linear-gradient(90deg, #ffca28, #ff9800);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(255, 213, 116, 0.6);
+}
+
+.back-btn:hover::before {
+  transform: translateY(-50%) translateX(-5px);
+}

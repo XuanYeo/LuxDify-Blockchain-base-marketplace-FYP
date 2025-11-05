@@ -1,0 +1,137 @@
+/* Admin Token Reload Wrapper */
+.admin-token-reload {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 40px;
+  background: linear-gradient(145deg, #1a1a1ade, #111111de);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.1);
+  position: relative;
+  z-index: 100;
+  animation: fadeIn 1s ease;
+}
+
+/* Title */
+.admin-token-reload h2 {
+  font-size: 32px;
+  margin-bottom: 30px;
+  text-align: center;
+  color: #ffd700;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* Table */
+.reload-table {
+  width: 100%;
+  /* border-collapse: separate; */
+  /* border-spacing: 0 14px; */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Table Headers */
+
+.reload-table thead {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background: linear-gradient(135deg, #ffd700, #ff8c00);
+}
+.reload-table thead th {
+  color: #1a1a1a;
+  padding: 16px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  border: #ffffff solid 3px;
+}
+
+/* Table Body */
+.reload-table tbody tr {
+  background: #222;
+  border-radius: 12px;
+  transition: background 0.3s ease, transform 0.3s ease;
+  border: #ffffff solid 3px;
+}
+
+.reload-table tbody tr:hover {
+  background: #333;
+  transform: scale(1.01);
+}
+
+.reload-table td {
+  padding: 16px;
+  text-align: center;
+  color: #ddd;
+  font-size: 15px;
+  border: #ffffff solid 3px;
+}
+
+/* Proof Button */
+.proof-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  color: white;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 14px;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.proof-btn:hover {
+  background: linear-gradient(135deg, #0072ff, #00c6ff);
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0, 114, 255, 0.5);
+}
+
+/* Approve / Reject Buttons */
+.reload-table button {
+  margin: 5px;
+  padding: 10px 16px;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Approve Button */
+.reload-table button:first-child {
+  background: linear-gradient(135deg, #28a745, #218838);
+  color: white;
+}
+
+.reload-table button:first-child:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(40, 167, 69, 0.5);
+}
+
+/* Reject Button */
+.reload-table button:last-child {
+  background: linear-gradient(135deg, #dc3545, #c82333);
+  color: white;
+}
+
+.reload-table button:last-child:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(220, 53, 69, 0.5);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .admin-token-reload {
+      padding: 20px;
+  }
+  .reload-table th, .reload-table td {
+      padding: 12px;
+      font-size: 14px;
+  }
+}
